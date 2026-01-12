@@ -12,9 +12,9 @@
 
 ---
 
-## 📋 Identitas Pengembang
+## Identitas Pengembang
 
-> **Catatan untuk Dosen Penilai:** Berikut adalah identitas mahasiswa pengembang aplikasi ini.
+**Catatan untuk Dosen Penilai:** Berikut adalah identitas mahasiswa pengembang aplikasi ini.
 
 | Data | Keterangan |
 | :--- | :--- |
@@ -24,7 +24,7 @@
 
 ---
 
-## 📖 1. Deskripsi Program
+## 1. Deskripsi Program
 
 **Aplikasi Perpustakaan Digital** ini adalah sistem informasi manajemen buku sederhana yang dirancang berbasis web. Proyek ini dikembangkan sebagai implementasi nyata dari konsep **Object-Oriented Programming (OOP)** menggunakan bahasa pemrograman **PHP Native** (tanpa bantuan framework backend) dan basis data **MySQL/MariaDB**.
 
@@ -37,6 +37,9 @@ Aplikasi ini dibangun untuk memenuhi dan mendemonstrasikan pemahaman mendalam me
 4.  **Manajemen Data:** Implementasi operasi **CRUD** (*Create, Read, Update, Delete*) yang lengkap pada data buku.
 5.  **Fitur Esensial:** Pengembangan fitur pendukung seperti **Upload Gambar**, **Pencarian (Search)**, dan **Paginasi (Pagination)** data.
 
+### Dokumentasi:
+<img width="406" height="221" alt="image" src="https://github.com/user-attachments/assets/e239f9b2-ba20-48bc-a89e-c38bcd5276aa" /> <img width="1006" height="461" alt="image" src="https://github.com/user-attachments/assets/fa7929bc-7dff-4fd5-995f-8fa521c13d36" /> <img width="1006" height="461" alt="image" src="https://github.com/user-attachments/assets/bdea36f5-5350-49dc-a863-468558f1743a" />
+
 ### Stack Teknologi
 
 | Kategori | Teknologi Yang Digunakan |
@@ -48,30 +51,30 @@ Aplikasi ini dibangun untuk memenuhi dan mendemonstrasikan pemahaman mendalam me
 
 ---
 
-## 🚀 2. Fitur Utama Aplikasi
+## 2. Fitur Utama Aplikasi
 
-Aplikasi ini dibagi menjadi dua peran pengguna dengan hak akses yang berbeda:
+Aplikasi ini dibagi menjadi dua peran pengguna dengan hak akses yang berbeda.
 
 ### A. Fitur Umum & Keamanan
 * **Sistem Login Multi-role:** Validasi keamanan untuk memisahkan akses Administrator dan User Biasa.
 * **Proteksi Route:** Mencegah akses langsung ke halaman admin tanpa sesi login yang valid.
-* **Sanitasi Input:** Mencegah input berbahaya dari pengguna.
+* **Sanitasi Input:** Mencegah input berbahaya dari pengguna untuk keamanan sistem.
 
-### B. Fitur Administrator (Full Access)
+### B. Fitur Administrator (Akses Penuh)
 Admin memiliki kontrol penuh terhadap manajemen data:
-* ✅ **Dashboard Informatif:** Melihat daftar buku lengkap dengan thumbnail gambar sampul.
-* ✅ **Pencarian Canggih:** Mencari buku berdasarkan kata kunci judul atau nama penulis.
-* ✅ **Paginasi Data:** Menampilkan data dalam beberapa halaman agar antarmuka tetap rapi.
-* ✅ **Tambah Buku & Upload:** Input data buku baru disertai fitur unggah gambar sampul (validasi format JPG/PNG).
-* ✅ **Edit Data & Gambar:** Memperbarui informasi buku dan mengganti gambar sampul yang sudah ada.
-* ✅ **Hapus Buku (Soft Delete/Hard Delete):** Menghapus data buku dari database sekaligus membersihkan file gambarnya dari server.
+* **Dashboard Informatif:** Melihat daftar buku lengkap dengan thumbnail gambar sampul.
+* **Pencarian Canggih:** Mencari buku berdasarkan kata kunci judul atau nama penulis.
+* **Paginasi Data:** Menampilkan data dalam beberapa halaman agar antarmuka tetap rapi.
+* **Tambah Buku & Upload:** Input data buku baru disertai fitur unggah gambar sampul (validasi format JPG/PNG).
+* **Edit Data & Gambar:** Memperbarui informasi buku dan mengganti gambar sampul yang sudah ada.
+* **Hapus Buku:** Menghapus data buku dari database sekaligus membersihkan file gambarnya dari server.
 
-### C. Fitur User Biasa (Read-Only)
-* ✅ **Katalog Buku:** Halaman khusus untuk melihat koleksi buku yang tersedia tanpa memiliki akses untuk memodifikasi data.
+### C. Fitur User Biasa (Akses Baca)
+* **Katalog Buku:** Halaman khusus untuk melihat koleksi buku yang tersedia tanpa memiliki akses untuk memodifikasi data (tombol edit dan hapus disembunyikan).
 
 ---
 
-## 🛠️ 3. Panduan Instalasi
+## 3. Panduan Instalasi
 
 Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal (localhost).
 
@@ -82,11 +85,11 @@ Pastikan telah menginstal paket web server seperti **XAMPP** (Windows/Linux) ata
 1.  Salin/Ekstrak folder project ini (misalnya: `perpustakaan_uas`) ke direktori root web server:
     * Windows: `C:\xampp\htdocs\`
     * Linux: `/opt/lampp/htdocs/` atau `/var/www/html/`
-2.  **PENTING:** Pastikan di dalam folder `public/` terdapat direktori bernama `uploads`. Jika belum ada, buat folder tersebut dan pastikan izin aksesnya *writable*.
+2.  **PENTING:** Pastikan di dalam folder `public/` terdapat direktori bernama `uploads`. Jika belum ada, buat folder tersebut dan pastikan izin aksesnya *writable* (dapat ditulis/disimpan file).
 
 ### Langkah 2: Konfigurasi Database
 1.  Buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
-2.  Buat database baru bernama: `db_perpustakaan`.
+2.  Buat database baru dengan nama: `db_perpustakaan`.
 3.  Buka tab **SQL**, salin script di bawah ini, dan jalankan (Go):
 
 ```sql
@@ -109,7 +112,7 @@ CREATE TABLE buku (
 -- Password untuk keduanya adalah: password123
 INSERT INTO users (username, password, role) VALUES 
 ('admin', '$2y$10$wYp.8/s6.c.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6', 'admin'),
-('user', '$2y$10$wYp.8/s6.c.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6', 'user');
+('user', '$2y$10$wYp.8/s6.c.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6', 'user');
 
 -- Data Dummy Buku
 INSERT INTO buku (judul, penulis, stok, gambar) VALUES
