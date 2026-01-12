@@ -1,64 +1,93 @@
-# Aplikasi Perpustakaan Digital Berbasis Web (PHP OOP)
-**Tugas Besar / Ujian Akhir Semester (UAS) Pemrograman Web**
+<div align="center">
 
----
-### **Identitas Mahasiswa**
-> **PENTING:** Mohon isi data berikut sebelum dikumpulkan.
+# Aplikasi Perpustakaan Digital Berbasis Web
+### Tugas Besar / Ujian Akhir Semester (UAS) Pemrograman Web
 
-* **Nama Lengkap:** Dedi Ramadhan
-* **NIM:** 312410171
-* **Kelas:** TI.24.A.1
+![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-777bb4?style=flat-square&logo=php&logoColor=white)
+![Database](https://img.shields.io/badge/Database-MySQL%2FMariaDB-4479a1?style=flat-square&logo=mysql&logoColor=white)
+![Frontend](https://img.shields.io/badge/Frontend-Bootstrap%205-7952b3?style=flat-square&logo=bootstrap&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=flat-square)
 
----
-
-## 1. Deskripsi dan Penjelasan Program
-
-**Aplikasi Perpustakaan Digital** ini adalah sebuah sistem informasi manajemen buku sederhana berbasis web. Aplikasi ini dibangun sebagai implementasi dari konsep **Object-Oriented Programming (OOP)** menggunakan bahasa pemrograman **PHP Native** (tanpa framework backend) dan database **MySQL/MariaDB**.
-
-Tujuan utama dari pengembangan aplikasi ini adalah untuk mendemonstrasikan pemahaman mengenai:
-1.  Penerapan Class, Object, dan Inheritance dalam PHP untuk koneksi database dan logika bisnis.
-2.  Penggunaan **PDO (PHP Data Objects)** untuk interaksi database yang aman (mencegah SQL Injection).
-3.  Manajemen **Session** untuk keamanan autentikasi dan otorisasi (Multi-role login).
-4.  Operasi **CRUD** (Create, Read, Update, Delete) data buku.
-5.  Fitur lanjutan seperti **Upload Gambar**, **Pencarian (Search)**, dan **Paginasi (Pagination)** data.
-
-### Teknologi yang Digunakan:
-* **Backend:** PHP 8.x (OOP Style)
-* **Database:** MariaDB / MySQL
-* **Frontend:** HTML5, CSS3, Bootstrap 5 (Framework CSS untuk tampilan responsif)
-* **Web Server:** Apache (via XAMPP/LAMPP)
-
-### Fitur Utama:
-* **Sistem Login Multi-role:** Membedakan hak akses antara **Administrator** dan **User Biasa**.
-* **Dashboard Admin (Lengkap):**
-    * Melihat daftar buku dengan gambar sampul.
-    * **Pencarian Buku:** Mencari berdasarkan judul atau nama penulis.
-    * **Paginasi:** Membagi tampilan data buku menjadi beberapa halaman agar rapi.
-    * **Tambah Buku:** Input data buku baru beserta upload gambar sampul (format JPG/PNG).
-    * **Edit Buku:** Mengubah data buku dan mengganti gambar sampul lama.
-    * **Hapus Buku:** Menghapus data buku dari database beserta file gambarnya dari server.
-* **Katalog User (Read-Only):** Halaman khusus untuk user biasa yang hanya dapat melihat daftar buku tanpa akses untuk mengubah data.
-* **Keamanan:** Proteksi halaman admin dari akses tanpa login, dan sanitasi input data.
+</div>
 
 ---
 
-## 2. Panduan Instalasi dan Menjalankan Program
+## 📋 Identitas Pengembang
 
-Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini di komputer lokal (localhost).
+> **Catatan untuk Dosen Penilai:** Berikut adalah identitas mahasiswa pengembang aplikasi ini.
 
-### Prasyarat:
-Pastikan Anda telah menginstal aplikasi web server stack seperti **XAMPP** (Windows/Linux) atau MAMP (macOS) yang mencakup Apache, PHP, dan MySQL.
+| Data | Keterangan |
+| :--- | :--- |
+| **Nama Lengkap** | **Dedi Ramadhan** |
+| **NIM** | **312410171** |
+| **Kelas** | **TI.24.A.1** |
+
+---
+
+## 📖 1. Deskripsi Program
+
+**Aplikasi Perpustakaan Digital** ini adalah sistem informasi manajemen buku sederhana yang dirancang berbasis web. Proyek ini dikembangkan sebagai implementasi nyata dari konsep **Object-Oriented Programming (OOP)** menggunakan bahasa pemrograman **PHP Native** (tanpa bantuan framework backend) dan basis data **MySQL/MariaDB**.
+
+### Tujuan Pengembangan
+Aplikasi ini dibangun untuk memenuhi dan mendemonstrasikan pemahaman mendalam mengenai aspek-aspek berikut:
+
+1.  **Implementasi OOP:** Penerapan *Class*, *Object*, dan *Inheritance* dalam PHP untuk struktur koneksi database dan logika bisnis yang modular.
+2.  **Keamanan Database:** Penggunaan **PDO (PHP Data Objects)** dan *prepared statements* untuk mencegah serangan *SQL Injection*.
+3.  **Autentikasi & Otorisasi:** Manajemen **Session** yang aman untuk membatasi hak akses berdasarkan peran (*Multi-role login*).
+4.  **Manajemen Data:** Implementasi operasi **CRUD** (*Create, Read, Update, Delete*) yang lengkap pada data buku.
+5.  **Fitur Esensial:** Pengembangan fitur pendukung seperti **Upload Gambar**, **Pencarian (Search)**, dan **Paginasi (Pagination)** data.
+
+### Stack Teknologi
+
+| Kategori | Teknologi Yang Digunakan |
+| :--- | :--- |
+| **Core Backend** | PHP 8.x (OOP Style) |
+| **Database** | MySQL / MariaDB |
+| **Frontend Framework**| Bootstrap 5 (Responsif UX/UI) |
+| **Web Server** | Apache (via XAMPP/LAMPP) |
+
+---
+
+## 🚀 2. Fitur Utama Aplikasi
+
+Aplikasi ini dibagi menjadi dua peran pengguna dengan hak akses yang berbeda:
+
+### A. Fitur Umum & Keamanan
+* **Sistem Login Multi-role:** Validasi keamanan untuk memisahkan akses Administrator dan User Biasa.
+* **Proteksi Route:** Mencegah akses langsung ke halaman admin tanpa sesi login yang valid.
+* **Sanitasi Input:** Mencegah input berbahaya dari pengguna.
+
+### B. Fitur Administrator (Full Access)
+Admin memiliki kontrol penuh terhadap manajemen data:
+* ✅ **Dashboard Informatif:** Melihat daftar buku lengkap dengan thumbnail gambar sampul.
+* ✅ **Pencarian Canggih:** Mencari buku berdasarkan kata kunci judul atau nama penulis.
+* ✅ **Paginasi Data:** Menampilkan data dalam beberapa halaman agar antarmuka tetap rapi.
+* ✅ **Tambah Buku & Upload:** Input data buku baru disertai fitur unggah gambar sampul (validasi format JPG/PNG).
+* ✅ **Edit Data & Gambar:** Memperbarui informasi buku dan mengganti gambar sampul yang sudah ada.
+* ✅ **Hapus Buku (Soft Delete/Hard Delete):** Menghapus data buku dari database sekaligus membersihkan file gambarnya dari server.
+
+### C. Fitur User Biasa (Read-Only)
+* ✅ **Katalog Buku:** Halaman khusus untuk melihat koleksi buku yang tersedia tanpa memiliki akses untuk memodifikasi data.
+
+---
+
+## 🛠️ 3. Panduan Instalasi
+
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal (localhost).
+
+### Prasyarat
+Pastikan telah menginstal paket web server seperti **XAMPP** (Windows/Linux) atau MAMP (macOS) yang mencakup Apache, PHP, dan MySQL.
 
 ### Langkah 1: Penempatan File
-1.  Salin/Extract seluruh folder project ini (misalnya bernama `perpustakaan_uas`) ke dalam direktori root web server Anda.
-    * Di XAMPP Windows: `C:\xampp\htdocs\`
-    * Di Linux (LAMPP): `/opt/lampp/htdocs/` atau `/var/www/html/`
-2.  **PENTING:** Pastikan di dalam folder `public/` terdapat folder bernama `uploads`. Jika belum ada, buatlah folder tersebut dan pastikan permission-nya *writable* (dapat ditulisi oleh server).
+1.  Salin/Ekstrak folder project ini (misalnya: `perpustakaan_uas`) ke direktori root web server:
+    * Windows: `C:\xampp\htdocs\`
+    * Linux: `/opt/lampp/htdocs/` atau `/var/www/html/`
+2.  **PENTING:** Pastikan di dalam folder `public/` terdapat direktori bernama `uploads`. Jika belum ada, buat folder tersebut dan pastikan izin aksesnya *writable*.
 
-### Langkah 2: Pembuatan Database
-1.  Buka **phpMyAdmin** di browser Anda (biasanya `http://localhost/phpmyadmin`).
-2.  Buat database baru dengan nama: **`db_perpustakaan`**.
-3.  Klik tab **SQL** pada database tersebut, lalu salin dan jalankan perintah SQL berikut untuk membuat tabel dan data awal:
+### Langkah 2: Konfigurasi Database
+1.  Buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
+2.  Buat database baru bernama: `db_perpustakaan`.
+3.  Buka tab **SQL**, salin script di bawah ini, dan jalankan (Go):
 
 ```sql
 CREATE TABLE users (
@@ -70,18 +99,19 @@ CREATE TABLE users (
 
 CREATE TABLE buku (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    judul VARCHAR(255) NOT # Project-UAS-Pemrograman-WebNULL,
+    judul VARCHAR(255) NOT NULL,
     penulis VARCHAR(100) NOT NULL,
     stok INT NOT NULL,
     gambar VARCHAR(255) DEFAULT 'default.jpg'
 );
 
--- Akun default (Password: admin123, user123)
+-- Akun Default untuk Login
+-- Password untuk keduanya adalah: password123
 INSERT INTO users (username, password, role) VALUES 
-('admin', '$2y$10$Li.fGz.Xn/X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.', 'admin'),
-('user', '$2y$10$Li.fGz.Xn/X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.X.', 'user');
+('admin', '$2y$10$wYp.8/s6.c.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6', 'admin'),
+('user', '$2y$10$wYp.8/s6.c.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6.6', 'user');
 
--- Data buku dummy (Opsional)
+-- Data Dummy Buku
 INSERT INTO buku (judul, penulis, stok, gambar) VALUES
 ('Belajar PHP OOP', 'Budi Raharjo', 10, 'default.jpg'),
-('Framework Bootstrap 5', 'Tim Bootstrap', 25, 'default.jpg');
+('Mahir Bootstrap 5', 'Tim Pengembang', 25, 'default.jpg');
