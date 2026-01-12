@@ -37,7 +37,7 @@ Aplikasi ini dibangun untuk memenuhi dan mendemonstrasikan pemahaman mendalam me
 4.  **Manajemen Data:** Implementasi operasi **CRUD** (*Create, Read, Update, Delete*) yang lengkap pada data buku.
 5.  **Fitur Esensial:** Pengembangan fitur pendukung seperti **Upload Gambar**, **Pencarian (Search)**, dan **Paginasi (Pagination)** data.
 
-### Dokumentasi:
+### Dokumentasi Gambar:
 <img width="406" height="221" alt="image" src="https://github.com/user-attachments/assets/e239f9b2-ba20-48bc-a89e-c38bcd5276aa" /> <img width="1006" height="461" alt="image" src="https://github.com/user-attachments/assets/fa7929bc-7dff-4fd5-995f-8fa521c13d36" /> <img width="1006" height="461" alt="image" src="https://github.com/user-attachments/assets/bdea36f5-5350-49dc-a863-468558f1743a" />
 
 ### Stack Teknologi
